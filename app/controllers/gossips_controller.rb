@@ -46,9 +46,13 @@ class GossipsController < ApplicationController
     end
 
     def destroy #fonction mais pas html
-    @gossip = Gossip.find(params[:id])
+        @gossip = Gossip.find(params[:id])
+        # if User.find(session[:user_id]).id != @gossip.user_id
+    #   redirect_to gossip_path, flash: { error: "désolé il faut que tu sois l'auteur pour pouvoir le détruire" }
+    #else
     @gossip.destroy
     redirect_to root, notice: "Gossip détruit"
+    #end
     end
   
 
