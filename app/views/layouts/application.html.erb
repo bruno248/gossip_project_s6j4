@@ -1,0 +1,45 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">Accueil</a>
+   <a class="navbar-brand" href="/gossips/new">nouveau Gossip</a>
+   <a class="navbar-brand" href="/authors/new">nouvel utilisateur</a>
+   <a class="navbar-brand" href="/team">notre équipe</a>
+      <a class="navbar-brand" href="/contact">nous contacter</a>
+</nav>
+
+  <% if current_user != nil%> 
+    <small>Bienvenue <%= current_user.first_name %> !</small> 
+  
+  <p></p>
+    <%= form_with url:session_path(current_user.id), method: :delete, local:true do |form| %>
+      <%= form.submit "Déconnexion !" %>
+    <%end%>
+  <p></p>
+  <%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gossips</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

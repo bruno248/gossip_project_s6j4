@@ -1,0 +1,7 @@
+
+
+<h1><%= @user.first_name%></h1>
+<p><em class='text-grey'> l'auteur est <%= @user.first_name%> <%= @user.last_name%> </em></p>
+<p><em class='text-grey'> originaire de la ville de <%= @user.city.name%> </em></p>
+<p><em class='text-grey'> agé de  <%= @user.age%> </em></p>
+( <em><%= link_to "Modifier", edit_author_path %> )</em></p>

@@ -1,0 +1,23 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">GOSSIP SITE</h1>
+    <p class="lead">Bienvenue sur le super site de potin.</p>
+  </div>
+</div>
+
+
+<h1 class="mb-5">Bienvenue sur The Hacking Gossip</h1>
+<button class="btn btn-success"><%= link_to 'Créer un gossip', new_gossip_path %></button>
+<div class="container">
+   <button type="button" class="list-group-item list-group-item-action">
+    <% @gossips.each do |gossip| %>
+        <div>
+            <h2><a href=<%= gossip_path(gossip) %>><%= gossip.title %></a></h2>
+            <a href=<%= edit_gossip_path(gossip) %> class="btn btn-default">Editer </a>
+            <a href="<%= gossip_path(gossip) %>" class="btn btn-danger" data-confirm = "etes vous sur ?" 
+            data-method="DELETE">supprimer</a>
+        </div>
+    <% end %>
+    </button>
+</div>
+

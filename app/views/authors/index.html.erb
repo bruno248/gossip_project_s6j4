@@ -1,0 +1,11 @@
+
+
+<div class="container">
+   <button type="button" class="list-group-item list-group-item-action">
+    <% @users.each do |author| %>
+        <div>
+            <h2><a href=<%= author_path(author) %>><%= author.first_name %>  <%= author.last_name %></a></h2>
+        </div>
+    <% end %>
+    </button>
+</div>

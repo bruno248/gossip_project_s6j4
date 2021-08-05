@@ -1,0 +1,13 @@
+<h1><%= @gossip.title%></h1>
+<p class="m5 p3 xshadow border border-light"><%= @gossip.content %></p>
+<p><em class='text-grey'> l'auteur est <%= @gossip.user.first_name%> </em></p>
+<p><em class='text-grey'> originaire de la ville de <%= @gossip.user.city.name%> </em></p>
+<p><em class='text-grey'> - created the <%= @date%> -</em></p>
+
+
+
+<button class="btn btn-secondary"><%= link_to "Cliquez ici pour en savoir plus sur l'auteur", author_path %></button>
+
+( <em><%= link_to "Modifier", edit_gossip_path %> )</em></p>
+
+( <em><%= link_to "destroy", @gossip.destroy %> )</em></p>
