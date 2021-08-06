@@ -13,12 +13,15 @@ class AuthorsController < ApplicationController
   
     def create
       # user = User.create(post_params)
-      # redirect_to user_path(user.id)
       @user = User.new(post_params)
-      if @user.save # essaie de sauvegarder en base @gossip
-        redirect_to user_path(user.id), notice: "Gossip créé"
+      # @user = User.new(first_name: params[:first_name],
+      #   email: params[:email],
+      #   password: params[:password],
+      #   age: params[:age],
+      #   city_id: params[:city_id])
+      if @user.save 
+        redirect_to user_path(user.id), notice: "User créé"
       else
-        # sinon, il render la view new (qui est celle sur laquelle on est déjà)
         render :new
       end  
     end
@@ -42,7 +45,7 @@ class AuthorsController < ApplicationController
 private
 
 def post_params
-  post_params = params.permit(:first_name, :last_name, :email, :age, :password )
+  post_params = params.permit(:first_name, :last_name, :description, :city_id, :email, :age, :password)
 end
 
 def authenticate_user

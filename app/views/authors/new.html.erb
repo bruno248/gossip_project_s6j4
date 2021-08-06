@@ -18,8 +18,8 @@
       <%= text_field_tag 'description', @user.description %>
       <br /> <br />
 
-       <%= label_tag 'city' %>
-      <%= text_field_tag 'city', @user.city %>
+       <%= label_tag 'city.id' %>
+      <%= text_field_tag 'city.id', @user.city_id.to_i %>
       <br /> <br />
 
          <%= label_tag 'email' %>
@@ -31,7 +31,7 @@
       <br /> <br />
 
        <%= label_tag 'password' %>
-      <%= text_field_tag 'password', @user.password %>
+      <%= password_field_tag 'password', @user.password %>
       <br /> <br />
 
       <%= submit_tag "Create user" %>
@@ -44,10 +44,11 @@
 
 
 <% if @user.errors.any? %>
-  <p class="alert alert-danger" role="alert"> Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+  <p class="alert alert-danger" role="alert"> Nous n'avons pas réussi à créer l'utilisateur pour la (ou les) raison(s) suivante(s) :</p>
   <ul>
     <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
+      <%= puts @user.city_id %>
     <% end %>
   </ul>
 <% end %>
